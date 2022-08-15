@@ -1,0 +1,23 @@
+<h1>New game</h1>
+
+<ul class="list-unstyled d-flex flex-row bd-highlight m-5">
+  <% @letters.each do |letter| %>
+    <li class = "d-flex align-items-center justify-content-center m-3"> <%= letter.capitalize %></li>
+  <% end %>
+</ul>
+<p>What is the longest word you can find?</p>
+
+
+<form action="/score" method="post" data-turbo="false" class="input-group m-1 p-5">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+  <input type="text"  name="score" class="form-control" placeholder="your answer">
+  <input class="btn btn-outline-secondary" type="submit" id="button-addon2" value ="play">
+</form>
+
+
+<%#
+<div class="input-group m-1 p-5">
+  <input type="text" class="form-control" placeholder="your answer">
+  <button class="btn btn-outline-secondary" type="button" id="button-addon2">Play</button>
+</div> %>
